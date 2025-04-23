@@ -20,17 +20,20 @@ My timeline/notes
 
 
 4/14/25 :
+
 	1. Be able to add numbers
 	2. Create a sudoku logic where only unique numbers exist for column, row, and block
 	3. Add user input
 
 4/19/25 :
+
 	1. Added Numbers
 	2. Figure out how to destroy new text
 	3. Numbers don't show up at first spawn
 	4. Able to store the rows and columns to spawn in center of cells
 
 4/21/25
+
 	1. Full generated grid with unique numbers
 	2. Has a solver
 	3. Need to create UI to hit play - solve - reset
@@ -38,6 +41,7 @@ My timeline/notes
 	5. Need to remove numbers to create puzzles
 
 4/22/25
+
 	1. Generates a puzzle now using DLX algorithm
 	2. Added user input 
 	3. Added a solve button
@@ -45,6 +49,7 @@ My timeline/notes
 	5. Need to make if => (solved) ? complete : wrong solution
 
 4/23/25
+
 	1. Created a checker of the solved board
 		1. Maybe figure out other ways to check if board is solved
 		2. Maybe make a mistake system
