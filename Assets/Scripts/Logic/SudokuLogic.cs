@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
-using UnityEditor.ShaderGraph.Internal;
 using System.Runtime.CompilerServices;
 using UnityEngine.U2D.IK;
 
@@ -15,8 +14,6 @@ public class SudokuLogic : MonoBehaviour
     public Transform canvasTransform;
     public int[,] sudokuBoard = new int[9, 9];
     private int[,] solvedBoard;
-    private int[,] playerBoard;
-
 
     public List<int>[] rows = new List<int>[9];
     public List<int>[] columns = new List<int>[9];
@@ -121,10 +118,6 @@ public class SudokuLogic : MonoBehaviour
                     blocks[(x / 3) + (y / 3) * 3].Add(solvedBoard[x, y]);
                 }
             }
-        }
-        else
-        {
-            Debug.LogError("No solution");
         }
     }
 

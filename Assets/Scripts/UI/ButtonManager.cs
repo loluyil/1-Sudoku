@@ -9,14 +9,10 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private Button confirmButton;
 
     public SudokuLogic sudokuLogic;
-
     void Start()
     {
-        Button solveBtn = solveButton.GetComponent<Button>();
-        solveBtn.onClick.AddListener(SolveOnClick);
-
-        Button confirmBtn = confirmButton.GetComponent<Button>();
-        confirmBtn.onClick.AddListener(ConfirmOnClick);
+        solveButton.onClick.AddListener(SolveOnClick);
+        confirmButton.onClick.AddListener(ConfirmOnClick);
     }
 
     void SolveOnClick()
@@ -28,4 +24,6 @@ public class ButtonManager : MonoBehaviour
     {
         sudokuLogic.IsCorrect();
     }
+
+
 }
