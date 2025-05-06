@@ -35,6 +35,7 @@ public class SudokuLogic : MonoBehaviour
     void Start()
     {   
         Debug.ClearDeveloperConsole();
+        currentDifficulty = GameSettings._difficulty;
         StartCoroutine(InitializeGame());
     }
 
@@ -445,7 +446,7 @@ public class SudokuLogic : MonoBehaviour
             }
         }   
         
-        //Ifplayerboard = solvedboard
+        //If playerboard = solvedboard
         bool isCorrect = true;
         for(int x = 0; x < 9; x++)
         {
@@ -487,6 +488,41 @@ public class SudokuLogic : MonoBehaviour
             }
         }
     }
+
+public void GenerateNewBoard()
+{
+    ClearChildren();
+
+    for(int i = 0; i < 9; i++)
+    {
+        rows[i].Clear();
+        columns[i].Clear();
+        blocks[i].Clear();
+    }
+
+    for(int x = 0; x < 9; x++)
+    {
+        for(int y = 0; y < 9; y++)
+        {
+            sudokuBoard[x, y] = 0;
+        }
+    }
+
+    FillDiagonal();
+    FillBoard();
+
+    solvedBoard = new int[9, 9];
+    for(int x = 0; x < 9; x++)
+    {
+        for(int y = 0; y < 9; y++)
+        {
+            solvedBoard[x, y] = sudokuBoard[x, y];
+        }
+    }
+    
+    GeneratePuzzle(currentDifficulty);
+    PrintBoard(solvedBoard, "Solved Board");
+}
 
     //Shuffle function
     private void ShuffleList<T>(List<T> list)

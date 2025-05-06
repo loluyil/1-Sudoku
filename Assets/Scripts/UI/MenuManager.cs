@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
@@ -8,10 +9,10 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Button difficultyButton;
     [SerializeField] private Button settingsButton;
 
-    public SudokuLogic sudokuLogic;
 
     void Start()
     {
+        difficultyButton.GetComponent<Button>().onClick.AddListener(DifficultyButtonOnClick);
         startButton.GetComponent<Button>().onClick.AddListener(StartButtonOnClick);
     }
 
@@ -20,8 +21,29 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("SudokuScene");
     }
 
-    void ChangeDifficultyButtonOnClick()
+    void DifficultyButtonOnClick()
     {
-        
+        // Logic to change difficulty
+        // For example, toggle between Easy, Medium, Hard
+        if (GameSettings._difficulty == SudokuLogic.DifficultyLevel.Easy)
+        {
+            GameSettings._difficulty = SudokuLogic.DifficultyLevel.Medium;
+        }
+        else if (GameSettings._difficulty == SudokuLogic.DifficultyLevel.Medium)
+        {
+            GameSettings._difficulty = SudokuLogic.DifficultyLevel.Hard;
+        }
+        else if (GameSettings._difficulty == SudokuLogic.DifficultyLevel.Hard)
+        {
+            GameSettings._difficulty = SudokuLogic.DifficultyLevel.Expert;
+        }
+        else
+        {
+            GameSettings._difficulty = SudokuLogic.DifficultyLevel.Easy;
+        }
+
+        difficultyButton.GetComponentInChildren<TMP_Text>().text = GameSettings._difficulty.ToString();
     }
 }
+
+
